@@ -13,8 +13,14 @@ resource "azurerm_key_vault" "example" {
   sku_name = "premium"
 }
 
+resource "azurerm_data_factory" "example" {
+  name                = "${local.prefix}-adf"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+}
+
 resource "azurerm_machine_learning_workspace" "example" {
-  name                    = "${local.prefix}-azureml"
+  name                    = "${local.prefix}-aml"
   location                = azurerm_resource_group.example.location
   resource_group_name     = azurerm_resource_group.example.name
   application_insights_id = azurerm_application_insights.example.id

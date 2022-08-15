@@ -6,9 +6,6 @@ provider "azurerm" {
   features {}
 }
 
-provider "random" {
-}
-
 resource "random_string" "naming" {
   special = false
   upper   = false
